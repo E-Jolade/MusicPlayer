@@ -38,7 +38,7 @@ class MusicPlayer:
         scroll_y.pack(side=RIGHT,fill=Y)
         scroll_y.config(command=self.playlist.yview)
         self.playlist.pack(fill=BOTH)
-        os.chdir(r"C:\Users\monke\OneDrive\Desktop\FL Studio Projects")
+        os.chdir(r"C:\Users\monke\OneDrive\Desktop\VSCode Projects\Python Projects\MusicPlayer\MusicFolder")
         songtracks = os.listdir()
         for track in songtracks:
             self.playlist.insert(END,track)
