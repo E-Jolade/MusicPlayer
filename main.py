@@ -22,6 +22,7 @@ class MusicPlayer:
         songtrack = Label(trackframe,textvariable=self.track,width=20,font=("arial",24,"bold"),bg="#E36C0B",fg="#B0FC38").grid(row=0,column=0,padx=10,pady=5)
         trackstatus = Label(trackframe,textvariable=self.status,font=("arial",24,"bold"),bg="#E36C0B",fg="#B0FC38").grid(row=0,column=1,padx=3,pady=5)
 
+        #These buttons control the ability to stop, pause, and play the music from the cover list
         buttonframe = LabelFrame(self.root,text="Control Panel",font=("arial",15,"bold"),bg="#E36C0B",fg="white",bd=5,relief=GROOVE)
         buttonframe.place(x=0,y=100,width=600,height=100)
         playbtn = Button(buttonframe,text="PLAY",command=self.playsong,width=6,height=1,font=("arial",16,"bold"),fg="navyblue",bg="#B0FC38").grid(row=0,column=0,padx=10,pady=5)
@@ -30,11 +31,14 @@ class MusicPlayer:
         playbtn = Button(buttonframe,text="STOP",command=self.stopsong,width=6,height=1,font=("arial",16,"bold"),fg="navyblue",bg="#B0FC38").grid(row=0,column=3,padx=10,pady=5)
 
 
+        #This window contains all the songs from the folder containing the cover audio files
         songsframe = LabelFrame(self.root,text="Covers",font=("arial",15,"bold"),bg="#E36C0B",fg="white",bd=5,relief=GROOVE)
         songsframe.place(x=600,y=0,width=400,height=200)
         scroll_y = Scrollbar(songsframe,orient=VERTICAL)
         self.playlist = Listbox(songsframe,yscrollcommand=scroll_y.set,selectbackground="#B0FC38",selectmode=SINGLE,font=("arial",12,"bold"),bg="#CF9FFF",fg="navyblue",bd=5,relief=GROOVE)
 
+
+        #This will automatically fill the window with the songs based on what can be found in the MusicFolder
         scroll_y.pack(side=RIGHT,fill=Y)
         scroll_y.config(command=self.playlist.yview)
         self.playlist.pack(fill=BOTH)
